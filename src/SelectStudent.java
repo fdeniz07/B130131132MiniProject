@@ -61,11 +61,13 @@ public class SelectStudent {
             boolean chkW = gender[i].equals("K") && weight[i] >= 50 && weight[i] <= 70 && heigt[i] >= 1.50;
             boolean chkM = gender[i].equals("E") && weight[i] >= 70 && weight[i] <= 90 && heigt[i] >= 1.60;
 
+            String message = "Isim: " + students[i] + " cinsiyet: " + gender[i] + " boy: " + heigt[i] + " kilo: " + weight[i];
+
             if (chkW) {
-                System.out.println("Isim: " + students[i] + " cinsiyet: " + gender[i] + " boy: " + heigt[i] + " kilo: " + weight[i]);
+                System.out.println(message);
                 counter++;
             } else if (chkM) {
-                System.out.println("Isim: " + students[i] + " cinsiyet: " + gender[i] + " boy: " + heigt[i] + " kilo: " + weight[i]);
+                System.out.println(message);
                 counter++;
             }
         }
