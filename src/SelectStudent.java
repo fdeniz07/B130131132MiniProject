@@ -32,6 +32,7 @@ public class SelectStudent {
         double[] weight = new double[numStd];
         boolean isSuccess = true;
         do {
+            isSuccess = true;
             for (int i = 0; i < numStd; i++) {
                 System.out.print("Isim: ");
                 students[i] = scan.next();
@@ -53,7 +54,7 @@ public class SelectStudent {
                 weight[i] = scan.nextDouble();
             }
         } while (!isSuccess);
-        int counter =0;
+        int counter = 0;
         System.out.println("***** Kursa secilen ögrenciler *****");
 
 
@@ -72,7 +73,7 @@ public class SelectStudent {
             }
         }
         //kursa secilen ögrenci yoksa
-        if (counter==0){
+        if (counter == 0) {
             System.out.println("Malesef kurs gereksinimlerini sağlayan öğrenci bulunamadı.");
         }
     }
