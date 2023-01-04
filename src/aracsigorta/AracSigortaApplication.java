@@ -21,17 +21,18 @@ public class AracSigortaApplication {
 
     public static void main(String[] args) {
 
+        start();
     }
 
-    public static void  start(){
+    public static void start() {
 
         boolean isFail;
         Scanner input = new Scanner(System.in);
 
 
-        do{
+        do {
 
-            isFail=false;
+            isFail = false;
             //menü ve tarif dönemi secimi
             System.out.println("--- Zorunlu Arac Sigorta Primi Hesaplama ---");
             System.out.println("Tarife dönemi seciniz: ");
@@ -40,39 +41,50 @@ public class AracSigortaApplication {
             int term = input.nextInt();
 
             //Tarif dönemi dgogru girilmisse isleme devam et, degilse uyari ver ve uygulamayi yeniden yap
-            if (term==1 || term==2){
+            if (term == 1 || term == 2) {
 
                 //Arac olustur
                 Arac arac = new Arac();
                 System.out.println("Arac tipini giriniz: ");
                 System.out.println("otomobil,kamyon,otobüs,motosiklet");
-                arac.type=input.next();
-                arac.prim= arac.countPrim(term);
+                arac.type = input.next();
+                arac.prim = arac.countPrim(term);
 
                 //prim 0 dan büyükse hesaplama basarili, sonucu görüntüle
                 //prim 0 veya negatifse hatali giris ve yeni islem secenegi
 
                 int select;
-                if (arac.prim>0){
+                String termName = term == 1 ? "Haziran 2022" : "Aralik 2022";
 
-                }else{
+                if (arac.prim > 0) {
+                    System.out.println("Hesaplama basariyla tamamlandi.");
+                    System.out.println("Arac tipi : " + arac.type);
+                    System.out.println("Tarife dönemi : " + termName);
+                    System.out.println("Aracinizin ilgili dönem sigorta primi " + arac.prim);
+                    System.out.println("Yeni islem icin 1, cikis icin 0 giriniz:");
+                    select = input.nextInt();
+
+                    isFail = select == 1;
+
+                } else {
                     System.out.println("Hesaplama basarisiz, tekrar deneyiniz.");
                     System.out.println("Yeni islem icin 1, cikis icin 0 giriniz:");
-                    select=input.nextInt();
+                    select = input.nextInt();
 
-                    isFail= select == 1;
+                    isFail = select == 1;
 //                    if (select==1)
 //                        isFail=true;
 //                    else {
 //                        isFail=false;
 //                    }
                 }
-            }else {
+            } else {
                 System.out.println("Hatali giris");
-                isFail=true;
+                isFail = true;
             }
 
-        }while (isFail);
+        } while (isFail);
+        System.out.println("İyi günler dileriz.");
 
     }
 }
