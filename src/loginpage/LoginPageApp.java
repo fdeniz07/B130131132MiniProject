@@ -34,10 +34,12 @@ public class LoginPageApp {
     public static void main(String[] args) {
 
         start();
+
     }
 
     public static void start() {
         Scanner input = new Scanner(System.in);
+        UserServices service = new UserServices();
         int select;
 
         do {
@@ -47,9 +49,14 @@ public class LoginPageApp {
             switch (select) {
                 case 1:
                     //üye olma
+                    service.register();
+                    System.out.println(service.userNames);
+                    System.out.println(service.emails);
+                    System.out.println(service.passwords);
                     break;
                 case 2:
                     //giris yapma
+                    service.login();
                     break;
                 case 0:
                     //cikis

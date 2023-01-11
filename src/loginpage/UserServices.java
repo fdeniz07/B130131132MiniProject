@@ -45,7 +45,63 @@ public class UserServices {
             }
         } while (isValid);
 
+        String password;
+        boolean isValidPsw;
 
+        do {
+            System.out.println("Sifrenizi giriniz: ");
+            password = input.next().trim();
+            isValidPsw = validatePassword(password);
+
+        } while (!isValidPsw);
+
+        User user = new User(name, username, email, password);
+        this.userNames.add(user.username);
+        this.emails.add(user.email);
+        this.passwords.add(user.password);
+        System.out.println("Tebrikler isleminiz basariyla gerceklestirildi.");
+        System.out.println("Kullanici adi veya email ile sisteme giris yapabilirsiniz.");
+    }
+
+    public void login(){
+        Scanner input = new Scanner(System.in);
+        System.out.println("Kullanici adi veya email giriniz:");
+        String userNameOrEmail = input.nextLine(); //sparrow
+
+        //Kullanicinin girdigi deger email mi userName mi?
+        boolean isMail = this.emails.contains(userNameOrEmail);
+        boolean isUserName = this.userNames.contains(userNameOrEmail);
+
+        if (isUserName || isMail){
+
+            boolean isWrong=true;
+
+            while (isWrong){
+                System.out.println("Sifrenizi giriniz: ");
+                String password = input.next();
+
+                //userName / email ile sifre ayni indexte olmali
+                int index;
+                if (isUserName){
+                    index=this.userNames.indexOf(userNameOrEmail);
+                }
+                else {
+                    index=this.emails.indexOf(userNameOrEmail);
+                }
+
+                if (this.passwords.get(index).equals(password)){
+                    System.out.println("Sisteme giris yaptiniz.");
+                    isWrong= false;
+                }
+                else {
+                    System.out.println("Sifreniz yanlis, tekrar deneyiniz.");
+                }
+            }
+        }
+        else {
+            System.out.println("Sisteme kayitli kullanici bulunamadi.");
+            System.out.println("Üyeyseniz bilgilerinizi kontrol ediniz, degilseniz lütfen üye olunuz.");
+        }
     }
 
     public static boolean validateEmail(String email) {
@@ -92,7 +148,7 @@ public class UserServices {
         String upperLetter = password.replaceAll("[^A-Z]", ""); //asDF123 ->DF
         String lowerLetter = password.replaceAll("[^a-z]", "");
         String digit = password.replaceAll("[\\D]", "");
-        String symbol = password.replaceAll("[\\p{Punct}]", "");
+        String symbol = password.replaceAll("[\\P{Punct}]", "");
 
         boolean space = password.contains(" ");
         boolean lenghtGraterThan6 = password.length() > 5;
@@ -119,7 +175,6 @@ public class UserServices {
         if (!isValid) {
             System.out.println("Gecersiz sifre, tekrar deneyiniz.");
         }
-
 
         return isValid;
     }
