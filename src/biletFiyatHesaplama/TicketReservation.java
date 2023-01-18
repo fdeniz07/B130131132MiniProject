@@ -1,4 +1,4 @@
-package biletfiyathesaplama;
+package biletFiyatHesaplama;
 
 /*
 Project: mesafeye ve şartlara göre otobüs bileti fiyatı hesaplayan uygulama

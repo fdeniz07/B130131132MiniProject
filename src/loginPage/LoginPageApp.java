@@ -1,4 +1,4 @@
-package loginpage;
+package loginPage;
 
 /*
 
@@ -50,7 +50,7 @@ public class LoginPageApp {
                 case 1:
                     //üye olma
                     service.register();
-                    System.out.println(service.userNames);
+                    System.out.println(service.usernames);
                     System.out.println(service.emails);
                     System.out.println(service.passwords);
                     break;

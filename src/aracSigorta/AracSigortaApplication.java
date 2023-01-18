@@ -1,4 +1,4 @@
-package aracsigorta;
+package aracSigorta;
 
 import java.util.Scanner;
 

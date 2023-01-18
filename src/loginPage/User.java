@@ -1,4 +1,4 @@
-package loginpage;
+package loginPage;
 
 public class User {
     public String name;

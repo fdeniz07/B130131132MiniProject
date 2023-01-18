@@ -1,4 +1,4 @@
-package biletfiyathesaplama;
+package biletFiyatHesaplama;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package biletfiyathesaplama;
+package biletFiyatHesaplama;
 
 public class Ticket {
 
