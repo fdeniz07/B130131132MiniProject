@@ -28,9 +28,11 @@ public class OrderService {
                 order.setPrice();//ücreti hesapla ve orderPrice field'ina ata. //440
                 order.setOrderCode(1000 + this.orderList.size()); //1000,1001
                 this.orderList.add(order);
+            }else{
+                System.out.println("Lütfen gecerli bir adet giriniz!");
             }
             for (Order order : this.orderList) {
-                System.out.printf("Siparis kodu:%-5s   lezzet kodu:%-3s adi:%-20s adet:%-3s\n", order.orderCode, order.dish.getCode(), order.dish.getName(), order.numOfDish);
+                System.out.printf("Siparis kodu: %-5s   lezzet kodu: %-3s adi: %-20s adet: %-3s\n", order.orderCode, order.dish.getCode(), order.dish.getName(), order.numOfDish);
             }
 
         }
@@ -70,7 +72,7 @@ public class OrderService {
         System.out.println("           Lezzet Fisiniz                ");
 
         for (Order order : this.orderList) {
-            System.out.printf("Lezzet kodu:%-5s adi:%-20s adet:%-5s siparis tutari:%-5s Lira", order.dish.getCode(), order.dish.getName(), order.numOfDish, order.orderPrice);
+            System.out.printf("Lezzet kodu:%-5s adi:%-20s adet:%-5s siparis tutari:%-5s Lira\n", order.dish.getCode(), order.dish.getName(), order.numOfDish, order.orderPrice);
             totalPrice += order.orderPrice;
         }
         System.out.println("Toplam tutar: " + totalPrice + " Lira");

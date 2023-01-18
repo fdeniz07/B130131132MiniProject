@@ -25,7 +25,7 @@ package restaurantBillGenerator;
     Ödev: Sirket büyüdü, cafe kismi acildi
           Ayni uygulamayi cafe kisminda da killanilsin
           Cafede farkli menüler var.
-           Dish dish1=new Dish(401,"Tiramisu",35.0);
+        Dish dish1=new Dish(401,"Tiramisu",35.0);
         Dish dish2=new Dish(402,"Dondurma",25.0);
         Dish dish3=new Dish(402,"Profiterol",25.0);
         Dish dish4=new Dish(403,"Kahve",17.5);
