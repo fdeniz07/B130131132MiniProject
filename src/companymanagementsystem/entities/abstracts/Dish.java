@@ -1,11 +1,10 @@
-package restaurantBillGenerator;
+package companymanagementsystem.entities.abstracts;
 
-public class Dish {
+public abstract class Dish {
 
     private int code;
     private String name;
     private double price;
-    private String details;
 
     public Dish(int code, String name, double price) {
         this.code = code;
@@ -32,6 +31,4 @@ public class Dish {
                 ", price=" + price +
                 '}';
     }
-
-
 }
