@@ -3,16 +3,30 @@ package MiniBookStore;
 public class NoteBook extends Product{
 
     private String brand;
+
     private String sheet;
 
-    public NoteBook() {
+
+    public NoteBook(int id, String name, String price, int stok,String brand, String sheet) {
+        super(id, name, price, stok);
+        this.brand=brand;
+        this.sheet=sheet;
     }
 
-    public NoteBook(int id, String name, String price, String stok, String brand, String sheet) {
-        super(id, name, price, stok);
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
         this.brand = brand;
+    }
+
+    public String getSheet() {
+        return sheet;
+    }
+
+    public void setSheet(String sheet) {
         this.sheet = sheet;
     }
-
 
 }
